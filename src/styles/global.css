@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+:root {
+  --background: 45 30% 2%;    /* Very deep black with a hint of gold */
+  --foreground: 45 100% 95%; /* Off-white with a hint of gold */
+  
+  --text: #a1a1aa;           /* Zinc 400 */
+  --text-h: #facc15;         /* Yellow 400 */
+  --bg: #09090b;             /* Zinc 950 / Black */
+  --border: #27272a;         /* Zinc 800 */
+  --code-bg: #18181b;        /* Zinc 900 */
+  --accent: #eab308;         /* Yellow 500 / Gold */
+  --accent-bg: rgba(234, 179, 8, 0.1);
+  --accent-border: rgba(234, 179, 8, 0.4);
+  --social-bg: rgba(39, 39, 42, 0.5);
+  --shadow: rgba(0, 0, 0, 0.6) 0 10px 15px -3px;
+
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #09090b; /* Deep Black */
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(234, 179, 8, 0.3);
+  color: #fef08a;
+}

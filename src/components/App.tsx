@@ -1,0 +1,225 @@
+import { motion } from "framer-motion";
+import { Button } from "@heroui/react";
+import { OrchestrationGrid } from "./OrchestrationGrid";
+import { SkillShowcase } from "./SkillShowcase";
+import { Cpu, Terminal, BrainCircuit } from "lucide-react";
+
+function App() {
+  return (
+    <div className="min-h-screen bg-[#09090b] text-white selection:bg-yellow-500/30 selection:text-yellow-200">
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none opacity-40 bg-cover bg-center bg-no-repeat grayscale brightness-50 contrast-125 blur-xl"
+        style={{ backgroundImage: 'url("images/bp4.png")' }}
+      />
+      <OrchestrationGrid />
+      
+      {/* Navigation Header */}
+      <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between border-b border-white/5 bg-[#09090b]/80 backdrop-blur-md">
+        <div className="flex items-center gap-2">
+          <Terminal className="w-6 h-6 text-yellow-400" />
+          <span className="font-mono text-sm tracking-widest text-white/90 uppercase pt-0.5">
+            SOFTWARE DEVELOPER <span className="text-xs text-yellow-500/80">v2025.05.21</span>
+          </span>
+        </div>
+        <div className="flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-white/50">
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#skills" className="hover:text-white transition-colors">Stack</a>
+          <a href="#projects" className="hover:text-white transition-colors">Experience</a>
+          <Button 
+            className="h-8 px-4 font-mono text-[10px] tracking-widest uppercase border border-white/10 hover:bg-white/5 transition-all text-white hover:text-yellow-400 hover:border-yellow-500/50"
+            variant="ghost"
+          >
+            Contact
+          </Button>
+        </div>
+      </nav>
+
+      <main className="max-w-7xl mx-auto px-6 overflow-hidden min-h-screen flex flex-col justify-center relative z-10">
+        {/* Hero Section */}
+        <section className="relative pt-12 pb-24 flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0, 0.55, 0.45, 1] }}
+          >
+            <div className="relative mb-12 group">
+              {/* EKG Pulse / Drawing Orbs Animation - Behind Image */}
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                {[0, 1].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute h-[2px] bg-gradient-to-l from-transparent via-yellow-400/60 to-transparent"
+                    style={{ 
+                      width: '40%',
+                      top: i === 0 ? '40%' : '60%',
+                    }}
+                    initial={{ right: '-20%', opacity: 0 }}
+                    animate={{ 
+                      right: ['-20%', '120%'],
+                      opacity: [0, 1, 1, 0]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: i * 0.8,
+                    }}
+                  >
+                    {/* The "Orb" Head */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-yellow-400 rounded-full shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Subtle pulsing ring */}
+              <motion.div 
+                className="absolute -inset-2 rounded-full border border-white/5 z-0"
+                animate={{ scale: [1, 1.05, 1], opacity: [0.1, 0.2, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <img 
+                src="images/profile1.png" 
+                alt="Profile" 
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-white/10 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500 z-10"
+              />
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/5 border border-yellow-500/10 mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+              </span>
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-yellow-300">
+                System Online: Version 2026.04.04
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1] mb-8 bg-gradient-to-b from-white via-white to-yellow-500/30 bg-clip-text text-transparent">
+              ROBERT STEWART <br className="hidden md:block" />
+              <span className="italic font-light">FULL</span> STACK DEVELOPER
+            </h1>
+            
+            <p className="max-w-xl mx-auto text-base md:text-lg text-white/50 font-light leading-relaxed mb-12">
+              Software Developer focused on building robust architectures and exploring the intersection 
+              of traditional development and agent-based automation.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                className="h-14 px-8 bg-white text-black font-semibold tracking-tight shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:bg-yellow-500 hover:text-black transition-all"
+              >
+                View Manifest
+              </Button>
+              <Button
+                className="h-14 px-8 font-semibold tracking-tight border border-white/10 hover:bg-white/5 hover:border-yellow-500/30 transition-all text-white"
+                variant="ghost"
+              >
+                Explore Stack
+              </Button>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Skill Showcase */}
+        <section id="skills" className="py-16 border-t border-white/5 relative overflow-hidden">
+          {/* Section Diagnostic Pulse */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+            <motion.div 
+              className="absolute h-[1px] w-full bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent"
+              initial={{ top: '10%', left: '-100%' }}
+              whileInView={{ left: '100%' }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center text-center mb-10">
+            <h2 className="text-3xl font-bold tracking-tight mb-4 uppercase">ENGINEERING STACK</h2>
+            <div className="h-1 w-12 bg-yellow-500 rounded-full mb-6" />
+            <p className="max-w-2xl text-white/50 font-light">
+              Building systems that are scalable, maintainable, and robust.
+              Exploring the potential of agent-assisted development with a focus on core software principles.
+            </p>
+          </div>
+          <SkillShowcase />
+        </section>
+
+        {/* Core Methodology Section */}
+        <section className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-white/5 relative overflow-hidden">
+          {/* Section Diagnostic Pulse */}
+          <div className="absolute inset-x-0 top-1/4 h-px z-0 pointer-events-none opacity-20">
+             <motion.div 
+              className="absolute h-[1px] w-1/3 bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"
+              initial={{ left: '-40%' }}
+              whileInView={{ left: '120%' }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 1 }}
+            />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="inline-block p-3 rounded-2xl bg-yellow-500/10 border border-yellow-500/20">
+              <BrainCircuit className="w-8 h-8 text-yellow-400" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase">SYSTEMS-FIRST DEVELOPMENT</h2>
+            <p className="text-lg text-white/60 font-light leading-relaxed">
+              In a rapidly evolving landscape, I focus on the fundamentals of building great software. 
+              By combining traditional development practices with emerging automation tools, 
+              I build production-grade applications that leverage the best of both worlds.
+            </p>
+            <ul className="space-y-4 font-mono text-sm uppercase tracking-wider text-yellow-300/80">
+              <li className="flex items-center gap-3">
+                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                Robust Architecture Design
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                Intelligent Tool Integration
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                Data-Driven Development
+              </li>
+            </ul>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative group aspect-square lg:aspect-video rounded-3xl overflow-hidden border border-white/5 bg-gradient-to-br from-yellow-500/10 to-[#16171D]"
+          >
+            <div className="absolute inset-x-0 bottom-0 p-8 pt-24 bg-gradient-to-t from-[#16171D] via-[#16171D]/60 to-transparent">
+              <div className="flex items-center gap-3 mb-2">
+                <Cpu className="w-5 h-5 text-yellow-400" />
+                <span className="text-xs font-mono uppercase tracking-widest text-white/50">System Diagnostics</span>
+              </div>
+              <p className="text-sm font-light text-white/80">
+                Operating with 99.9% uptime across production environments. 
+                Focusing on scalable architectures and robust deployment pipelines.
+              </p>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-white/30 text-xs font-mono tracking-widest uppercase">
+          <p>© 2026. ALL SYSTEMS NOMINAL.</p>
+          <div className="flex items-center gap-8">
+            <a href="#" className="hover:text-white transition-all">GITHUB</a>
+            <a href="#" className="hover:text-white transition-all">LINKEDIN</a>
+            <a href="#" className="hover:text-white transition-all">X (TWITTER)</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+export default App
