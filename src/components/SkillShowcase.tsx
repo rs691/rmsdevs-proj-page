@@ -22,7 +22,7 @@ export const SkillShowcase = () => {
           className="group relative flex flex-col items-center p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/[0.08]"
         >
           {/* Animated Background Pulse */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           
           <div className={`p-4 rounded-xl bg-white/5 mb-4 group-hover:ring-2 group-hover:ring-yellow-500/50 transition-all`}>
             <skill.icon className={`w-8 h-8 ${skill.color}`} />
