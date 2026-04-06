@@ -157,24 +157,10 @@ function App() {
               <span className="italic font-light">FULL</span> STACK DEVELOPER
             </h1>
             
-            <p className="max-w-xl mx-auto text-base md:text-lg text-white/50 font-light leading-relaxed mb-12">
+            <p className="max-w-xl mx-auto text-base md:text-lg text-white/50 font-light leading-relaxed">
               Software Developer focused on building robust architectures and exploring the intersection 
               of traditional development and agent-based automation.
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                className="h-14 px-8 bg-white text-black font-semibold tracking-tight shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:bg-yellow-500 hover:text-black transition-all"
-              >
-                View Manifest
-              </Button>
-              <Button
-                className="h-14 px-8 font-semibold tracking-tight border border-white/10 hover:bg-white/5 hover:border-yellow-500/30 transition-all text-white"
-                variant="ghost"
-              >
-                Explore Stack
-              </Button>
-            </div>
           </motion.div>
         </section>
 
