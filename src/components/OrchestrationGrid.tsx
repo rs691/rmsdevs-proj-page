@@ -27,7 +27,7 @@ export const OrchestrationGrid = () => {
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute h-px w-full bg-linear-to-r from-transparent via-yellow-500/20 to-transparent"
+          className="absolute h-[1px] w-full bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"
           initial={{ top: `${20 * i}%`, left: "-100%" }}
           animate={{ left: "100%" }}
           transition={{

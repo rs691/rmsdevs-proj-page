@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
 import { OrchestrationGrid } from "./OrchestrationGrid";
 import { SkillShowcase } from "./SkillShowcase";
+import { AboutSection } from "./AboutSection";
+import { ExperienceSection } from "./ExperienceSection";
 import { Cpu, Terminal, BrainCircuit } from "lucide-react";
 
 const TypewriterCode = () => {
@@ -81,7 +83,8 @@ function App() {
         <div className="flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-white/50">
           <a href="#about" className="hover:text-white transition-colors">About</a>
           <a href="#skills" className="hover:text-white transition-colors">Stack</a>
-          <a href="#projects" className="hover:text-white transition-colors">Experience</a>
+          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+          <a href="#methodology" className="hover:text-white transition-colors">Methodology</a>
           <Button 
             className="h-8 px-4 font-mono text-[10px] tracking-widest uppercase border border-white/10 hover:bg-white/5 transition-all text-white hover:text-yellow-400 hover:border-yellow-500/50"
             variant="ghost"
@@ -152,20 +155,22 @@ function App() {
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1] mb-8 bg-gradient-to-b from-white via-white to-yellow-500/30 bg-clip-text text-transparent">
-              ROBERT STEWART <br className="hidden md:block" />
-              <span className="italic font-light">FULL</span> STACK DEVELOPER
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.85] mb-8 bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent uppercase">
+              ROBERT <br className="hidden md:block" /> STEWART
             </h1>
             
-            <p className="max-w-xl mx-auto text-base md:text-lg text-white/50 font-light leading-relaxed">
-              Software Developer focused on building robust architectures and exploring the intersection 
-              of traditional development and agent-based automation.
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 font-light leading-relaxed">
+              Software Developer focused on building <span className="text-white/80 font-normal">robust architectures</span> and exploring the intersection 
+              of traditional development and <span className="text-yellow-500/80 font-normal">agent-based automation</span>.
             </p>
           </motion.div>
         </section>
 
+        {/* About Section */}
+        <AboutSection />
+
         {/* Skill Showcase */}
-        <section id="skills" className="py-16 border-t border-white/5 relative overflow-hidden">
+        <section id="skills" className="py-20 border-t border-white/5 relative overflow-hidden">
           {/* Section Diagnostic Pulse */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
             <motion.div 
@@ -176,10 +181,17 @@ function App() {
             />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center mb-10">
-            <h2 className="text-3xl font-bold tracking-tight mb-4 uppercase">ENGINEERING STACK</h2>
-            <div className="h-1 w-12 bg-yellow-500 rounded-full mb-6" />
-            <p className="max-w-2xl text-white/50 font-light">
+          <div className="relative z-10 flex flex-col items-center text-center mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-yellow-500/40"></span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-yellow-500/60 font-medium">
+                02 // TECH_STACK
+              </span>
+              <span className="h-px w-8 bg-yellow-500/40"></span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 uppercase">ENGINEERING STACK</h2>
+            <div className="h-1.5 w-16 bg-yellow-500 rounded-full mb-6" />
+            <p className="max-w-2xl text-white/50 font-light text-lg">
               Building systems that are scalable, maintainable, and robust.
               Exploring the potential of agent-assisted development with a focus on core software principles.
             </p>
@@ -187,8 +199,11 @@ function App() {
           <SkillShowcase />
         </section>
 
+        {/* Experience Section */}
+        <ExperienceSection />
+
         {/* Core Methodology Section */}
-        <section className="py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-white/5 relative overflow-hidden">
+        <section id="methodology" className="py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-t border-white/5 relative overflow-hidden">
           {/* Section Diagnostic Pulse */}
           <div className="absolute inset-x-0 top-1/4 h-px z-0 pointer-events-none opacity-20">
              <motion.div 
@@ -204,28 +219,35 @@ function App() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
+            <div className="flex items-center gap-3 mb-2">
+              <span className="h-px w-8 bg-yellow-500/40"></span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-yellow-500/60 font-medium">
+                04 // METHODOLOGY
+              </span>
+              <span className="h-px w-8 bg-yellow-500/40"></span>
+            </div>
             <div className="inline-block p-3 rounded-2xl bg-yellow-500/10 border border-yellow-500/20">
               <BrainCircuit className="w-8 h-8 text-yellow-400" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase">SYSTEMS-FIRST DEVELOPMENT</h2>
-            <p className="text-lg text-white/60 font-light leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase leading-[0.9]">SYSTEMS-FIRST DEVELOPMENT</h2>
+            <p className="text-xl text-white/70 font-light leading-relaxed">
               In a rapidly evolving landscape, I focus on the fundamentals of building great software. 
               By combining traditional development practices with emerging automation tools, 
               I build production-grade applications that leverage the best of both worlds.
             </p>
-            <ul className="space-y-4 font-mono text-sm uppercase tracking-wider text-yellow-300/80">
+            <ul className="space-y-3 font-mono text-[13px] uppercase tracking-wider text-yellow-400">
               <li className="flex items-center gap-3">
-                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                <span className="w-5 h-[1.5px] bg-yellow-400" />
                 Robust Architecture Design
               </li>
               <li className="flex items-center gap-3">
-                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                <span className="w-5 h-[1.5px] bg-yellow-400" />
                 Intelligent Tool Integration
               </li>
               <li className="flex items-center gap-3">
-                <span className="w-5 h-[1px] bg-yellow-500/50" />
+                <span className="w-5 h-[1.5px] bg-yellow-400" />
                 Data-Driven Development
               </li>
             </ul>
@@ -257,7 +279,7 @@ function App() {
           <p>© 2026. ALL SYSTEMS NOMINAL.</p>
           <div className="flex items-center gap-8">
             <a href="#" className="hover:text-white transition-all">GITHUB</a>
-            <a href="#" className="hover:text-white transition-all">LINKEDIN</a>
+            <a href="https://www.linkedin.com/in/robert-stewart-m" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-all text-yellow-500/80">LINKEDIN</a>
             <a href="#" className="hover:text-white transition-all">X (TWITTER)</a>
           </div>
         </footer>
